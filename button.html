@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <script>
+
+            let alph_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+
+            function num_checker(){
+                let number = parseInt(prompt('enter a number between 0-26'))
+                    while (number > 26 | isNaN(number) == true) {
+                        number = parseInt(prompt('please enter a number between 0-26'))
+                    }
+                create_button(number)
+            }
+
+
+            function create_button(num_button) {
+                for (num = 1; num <= num_button; num++) {
+                    let btn = document.createElement('button')
+                    document.body.appendChild(btn)
+                    btn.innerHTML = alph_list[num-1]
+                    btn.onclick = function write() {
+                        console.log('button', btn.innerHTML, 'was clicked')
+                    }
+                    document.body.appendChild(btn)
+                }
+            }
+
+            let menu = new food('Chicken Cacciatore', 2, ['cinnamon', 'lettuce', 'oinion'])
+            
+            function food(title, serves, ingredients){
+                this.title = title;
+                this.serves = serves;
+                this.ingredients = ingredients;
+            }
+            num_checker()
+            console.log(menu)
+
+        </script>
+    </body>
+</html>
